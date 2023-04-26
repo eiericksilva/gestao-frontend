@@ -43,7 +43,7 @@ const funcionario = {
 ## Funcionalidades básicas
 
 - Adicionar novo funcionário ✅
-- Editar informação de um funcionário existente
+- Editar informação de um funcionário existente ✅
 - Remover funcionário existente ✅
 - Listar todos funcionários por **departamento** ✅
 - Listar todos os funcionários pelo **salário** ✅
@@ -52,4 +52,4 @@ const funcionario = {
 ## Implementações extras
 
 - Teste (Vitest)
-- Interface gráfica (ReactJS + Tailwind)
+- Interface gráfica (ReactJS + Styled-Components)
