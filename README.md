@@ -31,7 +31,7 @@ const departamentos = [
 
 ```javascript
 const funcionario = {
-    id:""
+    id:"",
     nome: "",
     cargo: "",
     departamento: "",
