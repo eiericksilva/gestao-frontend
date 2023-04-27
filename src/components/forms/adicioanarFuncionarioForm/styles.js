@@ -9,7 +9,8 @@ export const InputContainer = styled.div`
 
   @media (max-width: 1024px) {
     flex-direction: column;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
   }
 `;
 
@@ -27,24 +28,5 @@ export const Form = styled.form`
 
   @media (max-width: 1024px) {
     flex-direction: column;
-  }
-
-  input,
-  select {
-    padding: 0 10px;
-    width: 20%;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    border-bottom: 1px solid #ffa500;
-    outline: none;
-    display: flex;
-    justify-content: space-between;
-
-    @media (max-width: 1024px) {
-      width: 90%;
-      height: 50px;
-      margin: 0 auto;
-    }
   }
 `;

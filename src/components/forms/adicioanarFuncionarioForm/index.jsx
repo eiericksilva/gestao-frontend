@@ -16,6 +16,7 @@ const AdicionarFuncionariosForm = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     const newFuncionario = { ...funcionario, ...data };
+    console.log(data.nome);
 
     setFuncionarios([...funcionarios, newFuncionario]);
     reset();

@@ -31,19 +31,6 @@ export const Container = styled.div`
       label {
         display: flex;
         flex-direction: column;
-
-        input {
-          padding: 0 10px;
-          width: 100%;
-          height: 50px;
-          border: none;
-          border-radius: 5px;
-          border-bottom: 2px solid #ffa500;
-          outline: none;
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 10px;
-        }
       }
     }
   }
