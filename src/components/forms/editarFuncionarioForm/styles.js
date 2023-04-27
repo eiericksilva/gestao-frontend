@@ -29,23 +29,4 @@ export const Form = styled.form`
       margin: 0 auto;
     }
   }
-
-  button {
-    padding: 5px;
-    width: 200px;
-    border: 1px solid black;
-    background-color: #ffa500;
-
-    @media (max-width: 1024px) {
-      width: 90%;
-      height: 50px;
-      margin: 0 auto;
-    }
-
-    &:hover {
-      background-color: #ff8c00;
-      color: #111;
-      cursor: pointer;
-    }
-  }
 `;

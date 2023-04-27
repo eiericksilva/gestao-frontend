@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import FuncionarioContext from "../../context/Funcionario.context";
 import { Container } from "./styles";
+import Button from "../../components/button";
 
 const RelacaoFuncionarios = () => {
   const {
@@ -69,8 +70,6 @@ const RelacaoFuncionarios = () => {
       (funcionario) => funcionario.id === id
     );
     setFuncionarioParaEditar(funcionarioSelecionado);
-
-    console.log("fpe:", funcionarioParaEditar);
   };
 
   return (
@@ -87,9 +86,10 @@ const RelacaoFuncionarios = () => {
               onChange={(e) => setSalario(e.target.value)}
             />
           </label>
-          <button onClick={() => filtrarTabelaFuncionariosPorSalario(salario)}>
-            Aplicar filtro
-          </button>
+          <Button
+            title="Aplicar filtro"
+            onClick={() => filtrarTabelaFuncionariosPorSalario(salario)}
+          />
         </div>
         <div>
           <label htmlFor="filtroDepartamento">
@@ -126,16 +126,16 @@ const RelacaoFuncionarios = () => {
                 <td>{funcionario.admissao}</td>
                 <td>
                   <div>
-                    <button
+                    <Button
+                      title="Editar Funcionário"
                       onClick={() =>
                         lidandoComEdicaoFuncionario(funcionario.id)
                       }
-                    >
-                      Editar Funcionário
-                    </button>
-                    <button onClick={() => excluirFuncionario(funcionario.id)}>
-                      Excluir Funcionário
-                    </button>
+                    />
+                    <Button
+                      title="Excluir Funcionário"
+                      onClick={() => excluirFuncionario(funcionario.id)}
+                    />
                   </div>
                 </td>
               </tr>

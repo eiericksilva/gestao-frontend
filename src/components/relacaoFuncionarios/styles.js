@@ -16,8 +16,6 @@ export const Container = styled.div`
       margin: 0 auto;
       flex-direction: column;
     }
-    @media (max-width: 1024px) {
-    }
 
     div {
       display: flex;
@@ -44,24 +42,7 @@ export const Container = styled.div`
           outline: none;
           display: flex;
           justify-content: space-between;
-        }
-      }
-
-      button {
-        padding: 5px;
-        width: 100%;
-        height: 40px;
-        border: 1px solid black;
-        border-radius: 5px;
-        background-color: #ffa500;
-        color: #111;
-        margin-top: 5px;
-        font-weight: bold;
-
-        &:hover {
-          background-color: #ff8c00;
-          color: #000;
-          cursor: pointer;
+          margin-bottom: 10px;
         }
       }
     }
@@ -99,23 +80,6 @@ export const Container = styled.div`
           div {
             display: flex;
             gap: 5px;
-
-            button {
-              padding: 5px;
-              width: 50%;
-              height: 40px;
-              border: 1px solid black;
-              border-radius: 5px;
-              background-color: #ffa500;
-              font-weight: bold;
-              color: #111;
-
-              &:hover {
-                background-color: #ff8c00;
-                color: #000;
-                cursor: pointer;
-              }
-            }
           }
         }
       }
@@ -131,23 +95,6 @@ export const Container = styled.div`
       border: 1px solid black;
       height: 40px;
       margin-right: none;
-    }
-    button {
-      width: 20%;
-      height: 40px;
-      border: 1px solid black;
-      border-radius: 5px;
-      background-color: #ffa500;
-      color: #111;
-      margin-left: none;
-      font-weight: bold;
-
-      &:hover {
-        background-color: #ff8c00;
-        color: #000;
-        font-weight: bold;
-        cursor: pointer;
-      }
     }
   }
 `;
