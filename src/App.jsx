@@ -1,4 +1,3 @@
-import "./App.css";
 import AdicionarFuncionariosForm from "./components/forms/adicioanarFuncionarioForm";
 import RelacaoFuncionarios from "./components/relacaoFuncionarios";
 import EditarFuncionarioForm from "./components/forms/editarFuncionarioForm";

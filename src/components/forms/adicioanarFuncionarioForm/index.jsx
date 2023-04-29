@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import FuncionarioContext from "../../../context/Funcionario.context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import {
   ButtonContainer,
   Container,
@@ -8,6 +8,7 @@ import {
   InputContainer,
 } from "../adicioanarFuncionarioForm/styles.js";
 import Button from "../../button";
+import api from "../../../services/api";
 
 const AdicionarFuncionariosForm = () => {
   const { funcionario, funcionarios, setFuncionarios } =
@@ -15,12 +16,23 @@ const AdicionarFuncionariosForm = () => {
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    const newFuncionario = { ...funcionario, ...data };
-    console.log(data.nome);
-
-    setFuncionarios([...funcionarios, newFuncionario]);
-    reset();
+    const novoFuncionario = { ...funcionario, ...data };
+    try {
+      api
+        .post("/funcionario", novoFuncionario)
+        .then((res) => setFuncionarios([...funcionarios, res.data]));
+      reset();
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  useEffect(() => {
+    api
+      .get(`/funcionario`)
+      .then((res) => setFuncionarios(res.data))
+      .catch((error) => console.log(error));
+  }, [setFuncionarios]);
 
   return (
     <Container>

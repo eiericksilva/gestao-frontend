@@ -8,7 +8,6 @@ const RelacaoFuncionarios = () => {
     funcionarios,
     setFuncionarios,
     setFuncionarioEstaSendoEditado,
-    funcionarioParaEditar,
     setFuncionarioParaEditar,
   } = useContext(FuncionarioContext);
   const [salario, setSalario] = useState(0);
