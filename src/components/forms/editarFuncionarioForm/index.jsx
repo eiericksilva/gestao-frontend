@@ -3,6 +3,9 @@ import FuncionarioContext from "../../../context/Funcionario.context.jsx";
 import { Container, Form } from "../adicioanarFuncionarioForm/styles.js";
 
 import { useForm } from "react-hook-form";
+import Button from "../../button/index.jsx";
+
+import api from "../../../services/api.js";
 
 const EditarFuncionariosForm = () => {
   const {
@@ -21,13 +24,20 @@ const EditarFuncionariosForm = () => {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setFuncionarioEstaSendoEditado(false);
-    const copiaFuncionario = { ...funcionarioParaEditar, ...data };
+    const { _id } = funcionarioParaEditar;
+
+    await api
+      .put(`funcionario/${_id}`, data)
+      .then((res) => console.log(res.data))
+      .catch((error) => console.log(error));
+
+    /* const copiaFuncionario = { ...funcionarioParaEditar, ...data };
     const novaListaDeFuncionarios = funcionarios.filter(
       (funcionario) => funcionario.id !== copiaFuncionario.id
     );
-    setFuncionarios([...novaListaDeFuncionarios, copiaFuncionario]);
+    setFuncionarios([...novaListaDeFuncionarios, copiaFuncionario]); */
   };
 
   return (
@@ -62,7 +72,7 @@ const EditarFuncionariosForm = () => {
         </select>
         <input type="number" placeholder="Salário:" {...register("salario")} />
         <input type="date" placeholder="Admissão" {...register("admissao")} />
-        <button type="submit">Salvar Mudanças</button>
+        <Button type="submit" title="Salvar Mudanças" />
       </Form>
     </Container>
   );

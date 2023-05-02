@@ -10,8 +10,8 @@ export const FuncionarioProvider = ({ children }) => {
     useState(false);
   const [funcionarioParaEditar, setFuncionarioParaEditar] = useState({});
   const funcionario = {
-    id: uuidv4(),
     nome: "",
+    cargo: "",
     departamento: "",
     salario: 0,
     admissao: "",
@@ -22,10 +22,10 @@ export const FuncionarioProvider = ({ children }) => {
       value={{
         funcionario,
         funcionarios,
-        setFuncionarios,
         funcionarioEstaSendoEditado,
-        setFuncionarioEstaSendoEditado,
         funcionarioParaEditar,
+        setFuncionarios,
+        setFuncionarioEstaSendoEditado,
         setFuncionarioParaEditar,
       }}
     >

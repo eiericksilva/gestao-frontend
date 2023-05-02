@@ -10,6 +10,7 @@ const RelacaoFuncionarios = () => {
     setFuncionarios,
     setFuncionarioEstaSendoEditado,
     setFuncionarioParaEditar,
+    funcionarioParaEditar,
   } = useContext(FuncionarioContext);
   const [salario, setSalario] = useState(0);
   const [mediaSalarial, setMediaSalarial] = useState(0);
@@ -68,7 +69,7 @@ const RelacaoFuncionarios = () => {
     setFuncionarioEstaSendoEditado(true);
 
     const funcionarioSelecionado = funcionarios.find(
-      (funcionario) => funcionario.id === id
+      (funcionario) => funcionario._id === id
     );
     setFuncionarioParaEditar(funcionarioSelecionado);
   };
@@ -119,7 +120,7 @@ const RelacaoFuncionarios = () => {
           </thead>
           <tbody>
             {funcionariosFiltrados.map((funcionario) => (
-              <tr key={funcionario.id}>
+              <tr key={funcionario._id}>
                 <td>{funcionario.nome}</td>
                 <td>{funcionario.cargo}</td>
                 <td>{funcionario.departamento}</td>
@@ -130,7 +131,7 @@ const RelacaoFuncionarios = () => {
                     <Button
                       title="Editar Funcionário"
                       onClick={() =>
-                        lidandoComEdicaoFuncionario(funcionario.id)
+                        lidandoComEdicaoFuncionario(funcionario._id)
                       }
                     />
                     <Button
