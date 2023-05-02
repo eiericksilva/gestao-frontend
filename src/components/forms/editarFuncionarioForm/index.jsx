@@ -8,12 +8,8 @@ import Button from "../../button/index.jsx";
 import api from "../../../services/api.js";
 
 const EditarFuncionariosForm = () => {
-  const {
-    funcionarioParaEditar,
-    setFuncionarioEstaSendoEditado,
-    funcionarios,
-    setFuncionarios,
-  } = useContext(FuncionarioContext);
+  const { funcionarioParaEditar, setFuncionarioEstaSendoEditado } =
+    useContext(FuncionarioContext);
   const { register, handleSubmit } = useForm({
     defaultValues: {
       nome: funcionarioParaEditar.nome,
@@ -26,18 +22,13 @@ const EditarFuncionariosForm = () => {
 
   const onSubmit = async (data) => {
     setFuncionarioEstaSendoEditado(false);
+
     const { _id } = funcionarioParaEditar;
 
     await api
       .put(`funcionario/${_id}`, data)
       .then((res) => console.log(res.data))
       .catch((error) => console.log(error));
-
-    /* const copiaFuncionario = { ...funcionarioParaEditar, ...data };
-    const novaListaDeFuncionarios = funcionarios.filter(
-      (funcionario) => funcionario.id !== copiaFuncionario.id
-    );
-    setFuncionarios([...novaListaDeFuncionarios, copiaFuncionario]); */
   };
 
   return (
