@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
-import FuncionarioContext from "../../../context/Funcionario.context";
-import { useContext, useEffect } from "react";
+import { useFuncionarioContext } from "../../../context/Funcionario.context";
+import { useEffect } from "react";
 import {
   ButtonContainer,
   Container,
@@ -11,7 +11,7 @@ import Button from "../../button";
 import api from "../../../services/api";
 
 const AdicionarFuncionariosForm = () => {
-  const { funcionarios, setFuncionarios } = useContext(FuncionarioContext);
+  const { funcionarios, setFuncionarios } = useFuncionarioContext();
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {

@@ -1,8 +1,8 @@
-import { useContext, useState, useEffect } from "react";
-import FuncionarioContext from "../../context/Funcionario.context";
+import { useState, useEffect } from "react";
 import { Container } from "./styles";
 import Button from "../../components/button";
 import api from "../../services/api";
+import { useFuncionarioContext } from "../../context/Funcionario.context";
 
 const RelacaoFuncionarios = () => {
   const {
@@ -10,7 +10,7 @@ const RelacaoFuncionarios = () => {
     setFuncionarios,
     setFuncionarioEstaSendoEditado,
     setFuncionarioParaEditar,
-  } = useContext(FuncionarioContext);
+  } = useFuncionarioContext();
   const [salario, setSalario] = useState(0);
   const [mediaSalarial, setMediaSalarial] = useState(0);
   const [departamento, setDepartamento] = useState("");

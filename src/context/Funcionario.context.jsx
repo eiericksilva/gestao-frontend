@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 const FuncionarioContext = createContext();
 
 // eslint-disable-next-line react/prop-types
@@ -32,4 +32,7 @@ export const FuncionarioProvider = ({ children }) => {
   );
 };
 
+export const useFuncionarioContext = () => {
+  return useContext(FuncionarioContext);
+};
 export default FuncionarioContext;

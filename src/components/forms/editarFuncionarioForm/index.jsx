@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import FuncionarioContext from "../../../context/Funcionario.context.jsx";
+import { useFuncionarioContext } from "../../../context/Funcionario.context.jsx";
 import { Container, Form } from "../adicioanarFuncionarioForm/styles.js";
 
 import { useForm } from "react-hook-form";
@@ -9,7 +8,7 @@ import api from "../../../services/api.js";
 
 const EditarFuncionariosForm = () => {
   const { funcionarioParaEditar, setFuncionarioEstaSendoEditado } =
-    useContext(FuncionarioContext);
+    useFuncionarioContext();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       nome: funcionarioParaEditar.nome,
