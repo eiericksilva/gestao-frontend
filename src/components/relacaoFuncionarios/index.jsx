@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import FuncionarioContext from "../../context/Funcionario.context";
 import { Container } from "./styles";
 import Button from "../../components/button";
+import api from "../../services/api";
 
 const RelacaoFuncionarios = () => {
   const {
@@ -24,11 +25,12 @@ const RelacaoFuncionarios = () => {
     calcularMediaSalarial();
   }, [funcionarios, departamento]);
 
-  const excluirFuncionario = (id) => {
-    const arrayFiltrado = funcionarios.filter(
-      (funcionario) => funcionario.id !== id
-    );
-    setFuncionarios(arrayFiltrado);
+  const excluirFuncionario = async (id) => {
+    await api.delete(`/funcionario/${id}`);
+    api
+      .get("funcionario")
+      .then((res) => setFuncionarios(res.data))
+      .catch((error) => console.log(error));
   };
 
   const [funcionariosFiltrados, setFuncionariosFiltrados] =
@@ -133,7 +135,7 @@ const RelacaoFuncionarios = () => {
                     />
                     <Button
                       title="Excluir Funcionário"
-                      onClick={() => excluirFuncionario(funcionario.id)}
+                      onClick={() => excluirFuncionario(funcionario._id)}
                     />
                   </div>
                 </td>

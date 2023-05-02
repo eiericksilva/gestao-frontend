@@ -11,15 +11,13 @@ import Button from "../../button";
 import api from "../../../services/api";
 
 const AdicionarFuncionariosForm = () => {
-  const { funcionario, funcionarios, setFuncionarios } =
-    useContext(FuncionarioContext);
+  const { funcionarios, setFuncionarios } = useContext(FuncionarioContext);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    const novoFuncionario = { ...funcionario, ...data };
     try {
       api
-        .post("/funcionario", novoFuncionario)
+        .post("/funcionario", data)
         .then((res) => setFuncionarios([...funcionarios, res.data]));
       reset();
     } catch (error) {
