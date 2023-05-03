@@ -62,7 +62,7 @@ const EditarFuncionariosForm = () => {
         </select>
         <input type="number" placeholder="Salário:" {...register("salario")} />
         <input type="date" placeholder="Admissão" {...register("admissao")} />
-        <Button type="submit" title="Salvar Mudanças" />
+        <Button type="submit" title="Salvar" />
       </Form>
     </Container>
   );

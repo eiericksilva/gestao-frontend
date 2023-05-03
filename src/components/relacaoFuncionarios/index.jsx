@@ -3,6 +3,7 @@ import { Container } from "./styles";
 import Button from "../../components/button";
 import api from "../../services/api";
 import { useFuncionarioContext } from "../../context/Funcionario.context";
+import Modal from "../modal/modal";
 
 const RelacaoFuncionarios = () => {
   const {
@@ -133,6 +134,7 @@ const RelacaoFuncionarios = () => {
                         lidandoComEdicaoFuncionario(funcionario._id)
                       }
                     />
+                    <Modal />
                     <Button
                       title="Excluir Funcionário"
                       onClick={() => excluirFuncionario(funcionario._id)}
