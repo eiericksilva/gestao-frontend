@@ -7,8 +7,11 @@ import Button from "../../button/index.jsx";
 import api from "../../../services/api.js";
 
 const EditarFuncionariosForm = () => {
-  const { funcionarioParaEditar, setFuncionarioEstaSendoEditado } =
-    useFuncionarioContext();
+  const {
+    funcionarioParaEditar,
+    setFuncionarioEstaSendoEditado,
+    setFuncionarios,
+  } = useFuncionarioContext();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       nome: funcionarioParaEditar.nome,
@@ -28,6 +31,8 @@ const EditarFuncionariosForm = () => {
       .put(`funcionario/${_id}`, data)
       .then((res) => console.log(res.data))
       .catch((error) => console.log(error));
+
+    await api.get("/funcionario").then((res) => setFuncionarios(res.data));
   };
 
   return (

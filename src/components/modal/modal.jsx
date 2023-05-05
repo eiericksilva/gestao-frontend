@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogTitle } from "@mui/material";
 import EditarFuncionariosForm from "../forms/editarFuncionarioForm";
 import { useFuncionarioContext } from "../../context/Funcionario.context";
+
 const Modal = () => {
   const { funcionarioEstaSendoEditado, setFuncionarioEstaSendoEditado } =
     useFuncionarioContext();

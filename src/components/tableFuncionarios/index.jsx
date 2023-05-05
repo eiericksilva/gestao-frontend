@@ -5,13 +5,14 @@ import api from "../../services/api";
 import { useFuncionarioContext } from "../../context/Funcionario.context";
 import Modal from "../modal/modal";
 
-const RelacaoFuncionarios = () => {
+const TableFuncionarios = () => {
   const {
     funcionarios,
     setFuncionarios,
     setFuncionarioEstaSendoEditado,
     setFuncionarioParaEditar,
   } = useFuncionarioContext();
+
   const [salario, setSalario] = useState(0);
   const [mediaSalarial, setMediaSalarial] = useState(0);
   const [departamento, setDepartamento] = useState("");
@@ -151,4 +152,4 @@ const RelacaoFuncionarios = () => {
   );
 };
 
-export default RelacaoFuncionarios;
+export default TableFuncionarios;
