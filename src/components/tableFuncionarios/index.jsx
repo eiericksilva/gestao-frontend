@@ -24,8 +24,11 @@ const TableFuncionarios = () => {
 
   useEffect(() => {
     filtrarTabelaFuncionariosDepartamento(departamento);
-    calcularMediaSalarial();
   }, [funcionarios, departamento]);
+
+  useEffect(() => {
+    calcularMediaSalarial();
+  }, [funcionarios]);
 
   const excluirFuncionario = async (id) => {
     await api.delete(`/funcionario/${id}`);
@@ -53,11 +56,14 @@ const TableFuncionarios = () => {
   };
 
   const calcularMediaSalarial = () => {
-    if (!funcionarios.length) return;
+    if (funcionarios.length === 0) {
+      setMediaSalarial(formatterNumber.format(0));
+      return;
+    }
 
     const somaDosSalarios = Number(
       funcionarios.reduce(
-        (acc, funcionario) => acc + Number(funcionario.salario),
+        (acc, funcionario) => Number(acc) + Number(funcionario.salario),
         0
       )
     );
